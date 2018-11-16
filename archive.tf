@@ -6,6 +6,7 @@ data "external" "archive" {
   query = {
     runtime     = "${var.runtime}"
     source_path = "${var.source_path}"
+    depends_on  = "${var.depends_on}"
   }
 }
 

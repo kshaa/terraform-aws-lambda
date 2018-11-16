@@ -42,6 +42,12 @@ variable "description" {
   default     = "Managed by Terraform"
 }
 
+variable "depends_on" {
+  description = "String which the source code hash resource will use as a dependency. For example - add an interpolated rendered_template content hash here to make the hash wait until the rendered template is generated."
+  type        = "string"
+  default     = "-"
+}
+
 variable "environment" {
   description = "Environment configuration for the Lambda function"
   type        = "map"
