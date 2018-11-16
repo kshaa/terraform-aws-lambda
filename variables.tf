@@ -48,6 +48,12 @@ variable "depends_on" {
   default     = "-"
 }
 
+variable "is_lambda_edge" {
+  description = "Will this Lambda function be used as Lambda@Edge?"
+  type        = "string"
+  default     = false
+}
+
 variable "environment" {
   description = "Environment configuration for the Lambda function"
   type        = "map"

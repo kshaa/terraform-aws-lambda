@@ -85,6 +85,7 @@ function name unique per region, for example by setting
 | timeout | The amount of time your Lambda function had to run in seconds | string | `10` | no |
 | vpc_config | VPC configuration for the Lambda function | map | `<map>` | no |
 | depends_on | String which the source code hash resource will use as a dependency. For example - add an interpolated rendered_template content hash here to make the hash wait until the rendered template is generated. | string | `-` | no |
+| is_lambda_edge | Will this Lambda function be used as Lambda@Edge? | string | `false` | no |
 
 ## Outputs
 

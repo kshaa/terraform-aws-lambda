@@ -7,7 +7,9 @@ data "aws_iam_policy_document" "assume_role" {
 
     principals {
       type        = "Service"
-      identifiers = ["lambda.amazonaws.com"]
+      // Can't use conditionals with lists
+      // Ref - https://github.com/hashicorp/terraform/issues/12453
+      identifiers = "${split(",", var.is_lambda_edge ? "edgelambda.amazonaws.com, lambda.amazonaws.com" : "lambda.amazonaws.com")}"
     }
   }
 }
