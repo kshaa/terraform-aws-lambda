@@ -15,6 +15,7 @@ resource "aws_lambda_function" "lambda" {
   runtime                        = "${var.runtime}"
   timeout                        = "${var.timeout}"
   tags                           = "${var.tags}"
+  publish                        = "${var.publish}"
 
   # Use a generated filename to determine when the source code has changed.
 
@@ -61,6 +62,7 @@ resource "aws_lambda_function" "lambda_with_dl" {
   filename                       = "${lookup(data.external.built.result, "filename")}"
   depends_on                     = ["null_resource.archive"]
   environment                    = ["${slice( list(var.environment), 0, length(var.environment) == 0 ? 0 : 1 )}"]
+  publish                        = "${var.publish}"
 }
 
 resource "aws_lambda_function" "lambda_with_vpc" {
@@ -88,6 +90,7 @@ resource "aws_lambda_function" "lambda_with_vpc" {
   filename                       = "${lookup(data.external.built.result, "filename")}"
   depends_on                     = ["null_resource.archive"]
   environment                    = ["${slice( list(var.environment), 0, length(var.environment) == 0 ? 0 : 1 )}"]
+  publish                        = "${var.publish}"
 }
 
 resource "aws_lambda_function" "lambda_with_dl_and_vpc" {
@@ -119,4 +122,5 @@ resource "aws_lambda_function" "lambda_with_dl_and_vpc" {
   filename                       = "${lookup(data.external.built.result, "filename")}"
   depends_on                     = ["null_resource.archive"]
   environment                    = ["${slice( list(var.environment), 0, length(var.environment) == 0 ? 0 : 1 )}"]
+  publish                        = "${var.publish}"
 }

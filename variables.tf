@@ -54,6 +54,12 @@ variable "is_lambda_edge" {
   default     = false
 }
 
+variable "publish" {
+  description = "Create a new version for the lambda function?"
+  type        = "string"
+  default     = false
+}
+
 variable "environment" {
   description = "Environment configuration for the Lambda function"
   type        = "map"
